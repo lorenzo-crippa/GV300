@@ -1,7 +1,7 @@
-# GV300_2019-20
+# GV300
  Advanced Quantitative Political Analysis (GV300) - Department of Government, University of Essex
 
-Materials for the 2019/20 academic year
+**Materials for the 2019/20 academic year**
 
 Folders:
 
