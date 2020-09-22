@@ -1,0 +1,227 @@
+\documentclass[xcolor=table]{beamer}
+
+\usepackage{lscape, amsmath, amsfonts, amssymb, setspace, theorem, wrapfig, graphicx, float, multirow, subfig, color, rotating, multicol, datetime, natbib, venndiagram, pstricks, xkeyval, tikz, etoolbox, verbatim}
+
+\usepackage{listings}
+\usepackage{xcolor}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegreengray}{rgb}{0,0.4,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codeblue}{rgb}{0.00,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreengray},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codegreen},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\title{GV300 - Quantitative Political Analysis}
+\subtitle{University of Essex - Department of Government}
+\date{Week 8 -- 18 November, 2019}				% or you can specify a date, just write it down instead of "\today"
+\author{Lorenzo Crippa} 
+
+\usetheme[progressbar=frametitle]{metropolis}
+\usecolortheme{seahorse}						% try others: wolverine; crane...
+
+
+\begin{document}
+\frame{
+\titlepage
+}
+
+\frame{
+\frametitle{Communication}
+\begin{center}
+This week: Office hour on Thursday, from 11 to 13 \\
+Office 5B.153 \\
+l.crippa@essex.ac.uk
+\end{center}
+}
+
+\frame{
+\frametitle{R and Stata session}
+Using your preferred statistical software, do the following exercise of descriptive statistics:
+\begin{enumerate}
+\item Download data on sales of Monet paintings from Moodle and import them
+\item What kinds of variables do you have? What's the best way to represent them?
+\item Use plots and descriptive statistics to synthesize your data. 
+	\begin{itemize}
+	\item You can use histograms, densities, boxplots as appropriate
+	\item You should show where the mean and median are
+	\end{itemize}
+\item Save plots you generated in a specific subfolder
+\end{enumerate}
+}
+
+\frame{
+\frametitle{R and Stata session}
+Now imagine you own a beautiful painting from Monet and want to sell it because you are in desperate need to raise money to finance your postgraduate studies. Luckily, you also have Greene's data and statistical skills.
+\begin{enumerate}
+\item You expect to get 4 million dollars from the sale of your painting. Can you support this hypothesis with your data?
+\item You are considering whether to sell your painting in house number one or number two, but the rumour is that on average the two houses sell paintings at the same price. Is this a safe theory based on your evidence?
+\item Your painting is signed by no less than Mr. Monet in person. Can you support the theory that signed paintings, on average, are worth more than the average price for a non-signed one?
+\end{enumerate}
+}
+
+\frame{
+\frametitle{Loops, functions and programs in R and Stata}
+Using your preferred statistical software, do the following:
+\begin{enumerate}
+\item Draw 30 observations from each of 50 variables normally distributed with mean 0 and standard deviation 1 and obtain the 50 averages (one per each variable)
+\item Plot the distribution of the averages. Choose the appropriate way to plot them
+\item Program a more general function that draws $n$ random observations from each of $X$ variables normally distributed with mean $\mu$ and standard deviation $\sigma$ and returns a vector with the $X$ means computed
+\end{enumerate}
+}
+
+\frame{
+\frametitle{Non-parametric tests}
+\begin{itemize}
+\item There are alternatives to the t-test
+\item Choose your test based on your problem, and not the other way around
+\item Do not stick to the t-test if your problem requires you to do otherwise
+\end{itemize}
+}
+
+\frame{
+\frametitle{Fisher's exact test -- Intuition}
+When do we use it?
+\begin{enumerate}
+\item When we have two independent samples arranged in a contingency table
+\item When in each sample we measure the frequency of success \emph{vs} failure (Bernoulli)
+\item When expected frequency of any success or failure is below 5. Otherwise use $\chi^2$ test
+\end{enumerate}
+}
+
+\frame{
+\frametitle{Fisher's exact test -- Three cases}
+\begin{enumerate}
+\item Row totals are fixed, column totals are random (or the other way around)
+	\begin{itemize}
+	\item The hypothesis tested is $p_1 = p_2$
+	\end{itemize}
+\item Both row totals and column totals are random
+	\begin{itemize}
+	\item The hypothesis tested is bivariate independence
+	\end{itemize}
+\item Both row totals and column totals are fixed
+	\begin{itemize}
+	\item The hypothesis tested is independence
+	\end{itemize}
+\end{enumerate}
+}
+
+\frame{
+\frametitle{Fisher's exact test -- Basics}
+\begin{enumerate}
+\item indicate as $O_{1S}$ the \emph{S}uccessful outcome you observe from sample 1 (similarly you have $O_{1F}$, $O_{2S}$, $O_{2F}$).
+\item Indicate as $n_{1\cdot}$ ($n_{2\cdot}$) the independent repeated Bernoulli trials from sample 1 (2), each one with success probability $p_1$ ($p_2$)
+\end{enumerate}
+We will have:
+\begin{tabular}{l|cc|c}
+			& Successes 	& Failures 		& Totals\\
+\hline
+Sample 1	& $O_{1S}$		& $O_{1F}$ 		& $n_{1\cdot}$ \\
+Sample 2	& $O_{2S}$		& $O_{2F}$ 		& $n_{2\cdot}$ \\
+\hline
+Totals		& $n_{\cdot S}$	& $n_{\cdot F}$ 	& $n$ \\
+\end{tabular}
+
+\begin{center}
+$H_0: p_1 = p_2 = p$ \\
+$H_1: p_1 \neq p_2$
+\end{center}
+}
+
+\frame{
+\frametitle{Fisher's exact test -- Procedure}
+\begin{itemize}
+\item In effect the test asks ``what is the probability of having a table as extreme as the one we observe, if the null hypothesis is true''?
+\item Hypergeometric distribution: $Prob(O_{1S}=x|n_{1\cdot},n_{2\cdot},n_{\cdot S},n_{\cdot F}) = \frac{n_{1\cdot}!n_{2\cdot}!n_{\cdot S}!n_{\cdot F}!}{n! x! O_{1F}!O_{2S}!O_{2F}!}$
+\item Fisher's exact test rejects $H_0: p_1=p_2$ if your observed $O_{1S}\geq q_{\alpha}$
+\item Where $q_{\alpha}$ is chosen from the conditional distribution described above so that $Prob(O_{1S}=x|n_{1\cdot},n_{2\cdot},n_{\cdot S},n_{\cdot F})=\alpha$ where $\alpha$ is our desired level of significance 
+\end{itemize}
+}
+
+\frame{
+\frametitle{Fisher's exact test -- Examples}
+Suppose you have:
+\begin{center}
+\begin{tabular}{l|cc|c}			& Successes 	& Failures 		& Totals\\
+\hline
+Sample 1	& 5				& 4		 		& 9 \\
+Sample 2	& 4				& 2		 		& 6 \\
+\hline
+Totals		& 9				& 6			 	& 15 \\
+\end{tabular}
+\end{center}
+
+\begin{itemize}
+\item Assume totals are fixed
+\item $H_0: p_1>p_2$
+\item What are the probabilities of all tables that would give us a value as large as or larger than the observed value of $O_{1S}=5$?
+\end{itemize}
+}
+
+\frame{
+\frametitle{Fisher's exact test -- Example}
+\begin{table}
+\centering
+\resizebox{\columnwidth}{20pt}{%
+\begin{tabular}{c| ccc ccc ccc ccc ccc ccc cc}
+Sample 1 & 3 & 6 && 4 & 5 && 5 & 4 && 6 & 3 && 7 & 2 && 8 & 1 && 9 & 0\\
+Sample 2 & 6 & 0 && 5 & 1 && 4 & 2 && 3 & 3 && 2 & 4 && 1 & 5 && 0 & 6\\
+p & \multicolumn{2}{c}{.017} && \multicolumn{2}{c}{.151} && \multicolumn{2}{c}{.378} && \multicolumn{2}{c}{.336} && \multicolumn{2}{c}{.108} && \multicolumn{2}{c}{.011} && \multicolumn{2}{c}{.000}\\
+\end{tabular}%
+}
+\end{table}
+
+\begin{itemize}
+\item $H_0: p_1>p_2$
+\item What are the probabilities of all tables that would give us a value as large as or larger than the observed value of $O_{1S}=5$?
+\item It will be $.378+.336+.108+.011+.000=0.832$
+\item $H_0: p_1<p_2$? $p=.017+.151+.378=.545$
+\end{itemize}
+}
+
+\frame{
+\frametitle{Fisher's exact test -- Example}
+If what we observe were:
+\begin{center}
+\begin{tabular}{l|cc|c}			& Successes 	& Failures 		& Totals\\
+\hline
+Sample 1	& 8				& 1		 		& 9 \\
+Sample 2	& 1				& 5		 		& 6 \\
+\hline
+Totals		& 9				& 6			 	& 15 \\
+\end{tabular}
+\end{center}
+
+The probability of having a table as extreme (or more) as the one you observe  would be: $p=0.0107+0.0002=0.0109$ ! 
+}
+
+
+\frame{
+\frametitle{Conclusion}
+\begin{center}
+All clear? Questions? \\
+Thanks and see you next week!
+\end{center}
+}
+
+\end{document}

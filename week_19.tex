@@ -1,0 +1,290 @@
+\documentclass[xcolor=table,dvipsnames]{beamer}
+
+\usepackage{lscape, amsmath, amsfonts, amssymb, setspace, theorem, wrapfig, graphicx, float, multirow, subfig, color, rotating, multicol, datetime, natbib, venndiagram, pstricks, xkeyval, tikz, etoolbox, verbatim}
+
+\usepackage{listings}
+\usepackage{xcolor}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegreengray}{rgb}{0,0.4,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codeblue}{rgb}{0.00,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{jeopardy}{rgb}{.24,.47,.914}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreengray},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codegreen},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\title{GV300 - Quantitative Political Analysis}
+\subtitle{University of Essex - Department of Government}
+\date{Week 19 -- 3 February, 2020}				% or you can specify a date, just write it down instead of "\today"
+\author{Lorenzo Crippa} 
+
+\usetheme[progressbar=frametitle]{metropolis}
+\usecolortheme{seahorse}						% try others: wolverine; crane...
+
+
+\begin{document}
+\frame{
+\titlepage
+}
+
+%\begin{frame}
+%\frametitle{What do you want to do?}
+%\begin{itemize}
+%\item We watch all episodes of Game of Thrones at 8x times the speed. We count the number of killings. Whoever creates a probability distribution that best corresponds to the distribution of the random variable ''number of death in GOT'' wins 5 extra marks on the last problem set. \pause
+%\item We are randomly mixing karaoke, jeopardy, and Britain got talent for 5 extra marks on the last problem set. 
+%\item We re-watch a Tottenham match after Mourinho took over and count the number of attempts on goal. Whoever creates a probability distribution that best corresponds to the distribution of the random variable ''number of attempts on goal'' wins 5 extra marks on the last problem set.
+%\end{itemize}
+%\end{frame}
+
+%\begin{frame}
+%\frametitle{What do you want to do?}
+%\begin{itemize}
+%\item We watch all episodes of Game of Thrones at 8x times the speed. We count the number of killings. Whoever creates a probability distribution that best corresponds to the distribution of the random variable ''number of death in GOT'' wins 5 extra marks on the last problem set. 
+%\item We are randomly mixing karaoke, jeopardy, and Britain got talent for 5 extra marks on the last problem set. 
+%\item We re-watch a Tottenham match after Mourinho took over and count the number of attempts on goal. Whoever creates a probability distribution \ldots yeah, the answer is it is rare-events model \ldots negative binomial or known by laymen as ''destruction of football''. 
+%\end{itemize}
+%\end{frame}
+
+\begin{frame}
+\frametitle{Let's play!}
+\centering 
+We are randomly mixing karaoke, jeopardy, and Britain got talent for 5 extra marks on the last problem set. 
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Rules}
+\begin{enumerate}
+\item We first create teams by random assignment. \href{https://www.randomlists.com/team-generator}{(click)}
+\item You choose a category and a question (starting from the lowest available points question)
+\item If you think you got the answer, run to project screen and touch the respective points field and yell ``heteroskedasticity'', then present your answer.
+\item Any other team who thinks they got a better answer can now intervene by yelling ``homoskedasticity''
+\item The group giving the best answer wins the points associated with the question
+\item The team with the most points at the end wins 5 marks for each of its members applied to the next problem set
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Next games}
+\begin{table}[H]\centering
+{\color{white} \begin{tabular}{|r|c|c|c|} \hline
+\rowcolor{jeopardy} & Your data sucks & Your model sucks & Your graph sucks \\\hline
+\rowcolor{jeopardy} 100 & & & \\\hline
+\rowcolor{jeopardy} 200 & & & \\\hline
+\rowcolor{jeopardy} 300 & &	& \\\hline
+\end{tabular}}
+\end{table}
+
+\end{frame}	
+
+
+\begin{frame}
+\frametitle{Your Data sucks 100}
+\begin{itemize}	
+\item[] Fit a linear model on a dependent variable. Create a new variable and add it to the linear model. Create the variable in a way that it helps us as little as possible to learn about the relationship between dependent variable and that new variable (you got 5 mins).
+\end{itemize}
+\end{frame}	
+
+\begin{frame}
+\frametitle{Next games}
+\begin{table}[H]\centering
+{\color{white} \begin{tabular}{|r|c|c|c|} \hline
+\rowcolor{jeopardy} & Your data sucks & Your model sucks & Your graph sucks \\\hline
+\rowcolor{jeopardy} 100 & & & \\\hline
+\rowcolor{jeopardy} 200 & & & \\\hline
+\rowcolor{jeopardy} 300 & &	& \\\hline
+\end{tabular}}
+\end{table}
+
+\end{frame}	
+
+
+\begin{frame}
+\frametitle{Your Data sucks 200}
+\begin{itemize}	
+\item[] Find a significant difference in an outcome variable separated by a grouping variable. Start omitting data. Find the smallest sample that still shows a significant difference (you got 5 mins).  
+\end{itemize}
+\end{frame}	
+
+\begin{frame}
+\frametitle{Next games}
+\begin{table}[H]\centering
+{\color{white} \begin{tabular}{|r|c|c|c|} \hline
+\rowcolor{jeopardy} & Your data sucks & Your model sucks & Your graph sucks \\\hline
+\rowcolor{jeopardy} 100 & & & \\\hline
+\rowcolor{jeopardy} 200 & & & \\\hline
+\rowcolor{jeopardy} 300 & &	& \\\hline
+\end{tabular}}
+\end{table}
+
+\end{frame}	
+
+
+\begin{frame}
+\frametitle{Your Data sucks 300}
+\begin{itemize}	
+\item[] Fit an instrumental variable regression. Find the variable that (1) gives you the weakest instrument (2) and violates the exclusion restriction the most. (you got 5 mins).
+\end{itemize}
+\end{frame}	
+
+\begin{frame}
+\frametitle{Next games}
+\begin{table}[H]\centering
+{\color{white} \begin{tabular}{|r|c|c|c|} \hline
+\rowcolor{jeopardy} & Your data sucks & Your model sucks & Your graph sucks \\\hline
+\rowcolor{jeopardy} 100 & & & \\\hline
+\rowcolor{jeopardy} 200 & & & \\\hline
+\rowcolor{jeopardy} 300 & &	& \\\hline
+\end{tabular}}
+\end{table}
+
+\end{frame}	
+
+
+\begin{frame}
+\frametitle{Your Model sucks 100}
+\begin{itemize}	
+\item[] Take a continuous variable as dependent variable and fit a linear model. Find the model with the highest $R^2$ (you got 5 mins). 
+\end{itemize}
+\end{frame}	
+
+\begin{frame}
+\frametitle{Next games}
+\begin{table}[H]\centering
+{\color{white} \begin{tabular}{|r|c|c|c|} \hline
+\rowcolor{jeopardy} & Your data sucks & Your model sucks & Your graph sucks \\\hline
+\rowcolor{jeopardy} 100 & & & \\\hline
+\rowcolor{jeopardy} 200 & & & \\\hline
+\rowcolor{jeopardy} 300 & &	& \\\hline
+\end{tabular}}
+\end{table}
+
+\end{frame}	
+
+
+\begin{frame}
+\frametitle{Your Model sucks 200}
+\begin{itemize}	
+\item[] Take a binary dependent variable and fit a non-linear model. Find the model with the highest negative log-likelihood within (you got 5 mins). 
+\end{itemize}
+\end{frame}	
+
+\begin{frame}
+\frametitle{Next games}
+\begin{table}[H]\centering
+{\color{white} \begin{tabular}{|r|c|c|c|} \hline
+\rowcolor{jeopardy} & Your data sucks & Your model sucks & Your graph sucks \\\hline
+\rowcolor{jeopardy} 100 & & & \\\hline
+\rowcolor{jeopardy} 200 & & & \\\hline
+\rowcolor{jeopardy} 300 & &	& \\\hline
+\end{tabular}}
+\end{table}
+
+\end{frame}	
+
+
+\begin{frame}
+\frametitle{Your Model sucks 300}
+\begin{itemize}	
+\item[] Fit a non-linear model. Find a model with the smallest number of variables that does not converge (you got 5 mins). 
+\end{itemize}
+\end{frame}	
+
+\begin{frame}
+\frametitle{Next games}
+\begin{table}[H]\centering
+{\color{white} \begin{tabular}{|r|c|c|c|} \hline
+\rowcolor{jeopardy} & Your data sucks & Your model sucks & Your graph sucks \\\hline
+\rowcolor{jeopardy} 100 & & & \\\hline
+\rowcolor{jeopardy} 200 & & & \\\hline
+\rowcolor{jeopardy} 300 & &	& \\\hline
+\end{tabular}}
+\end{table}
+
+\end{frame}	
+
+
+\begin{frame}
+\frametitle{Your Graph sucks 100}
+\begin{itemize}	
+\item[] Show a binary relationship in a scatter plot. Find the best manipulation of the graph's layout to fake the visual existence of a substantial effect in the relationship (you got 5 mins). 
+\end{itemize}
+\end{frame}	
+
+\begin{frame}
+\frametitle{Next games}
+\begin{table}[H]\centering
+{\color{white} \begin{tabular}{|r|c|c|c|} \hline
+\rowcolor{jeopardy} & Your data sucks & Your model sucks & Your graph sucks \\\hline
+\rowcolor{jeopardy} 100 & & & \\\hline
+\rowcolor{jeopardy} 200 & & & \\\hline
+\rowcolor{jeopardy} 300 & &	& \\\hline
+\end{tabular}}
+\end{table}
+
+\end{frame}	
+
+
+\begin{frame}
+\frametitle{Your Graph sucks 200}
+\begin{itemize}	
+\item[] Fit a linear model, get predicted values and plot against the dependent variable. Find the model that gives you the most perfect fit visually (you got 5 mins). 
+\end{itemize}
+\end{frame}	
+
+\begin{frame}
+\frametitle{Next games}
+\begin{table}[H]\centering
+{\color{white} \begin{tabular}{|r|c|c|c|} \hline
+\rowcolor{jeopardy} & Your data sucks & Your model sucks & Your graph sucks \\\hline
+\rowcolor{jeopardy} 100 & & & \\\hline
+\rowcolor{jeopardy} 200 & & & \\\hline
+\rowcolor{jeopardy} 300 & &	& \\\hline
+\end{tabular}}
+\end{table}
+
+\end{frame}	
+
+
+\begin{frame}
+\frametitle{Your Graph sucks 300}
+\begin{itemize}	
+\item[] Fit a linear model, create a new variable that creates heteroskedasticity in the errors and add this variable to the model. Find the new variable that visually maximises the amount of heteroskedasticity (you got 5 mins).
+\end{itemize}
+\end{frame}	
+
+\begin{frame}
+\frametitle{Next games}
+\begin{table}[H]\centering
+{\color{white} \begin{tabular}{|r|c|c|c|} \hline
+\rowcolor{jeopardy} & Your data sucks & Your model sucks & Your graph sucks \\\hline
+\rowcolor{jeopardy} 100 & & & \\\hline
+\rowcolor{jeopardy} 200 & & & \\\hline
+\rowcolor{jeopardy} 300 & &	& \\\hline
+\end{tabular}}
+\end{table}
+
+\end{frame}	
+
+
+\end{document}
