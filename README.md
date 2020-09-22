@@ -11,6 +11,6 @@ Folders:
 
 - "do_files" contains Stata code for each class
 
-- "slides" contains a set of slides for each class
+- "slides" contains a set of slides for each class in pdf
 
 - "slides_source_code" contains LaTeX code (and necessary files, like pictures...) to generate pdf slides
